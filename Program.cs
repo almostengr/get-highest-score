@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace higheststudentscore
+namespace Almostengr.HighStudentScore
 {
     class Program
     {
