@@ -7,22 +7,20 @@ namespace Almostengr.higheststudentscore
         static void Main(string[] args)
         {
             Console.WriteLine("Input a list of student scores:");
-            string studentScoresInput = Console.ReadLine();
+            string input = Console.ReadLine();
 
-            string[] studentScores = studentScoresInput.Split(" ");
+            string[] studentScores = input.Split(" ");
 
             double highestScore = 0;
             foreach (var scoreString in studentScores)
             {
-                double scoreInt = 0;
-
                 try
                 {
-                    scoreInt = Convert.ToDouble(scoreString);
+                    double score = Convert.ToDouble(scoreString);
 
-                    if (scoreInt > highestScore)
+                    if (score > highestScore)
                     {
-                        highestScore = scoreInt;
+                        highestScore = score;
                     }
                 }
                 catch (Exception ex)
