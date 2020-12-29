@@ -16,6 +16,8 @@ namespace Almostengr.higheststudentscore
             {
                 try
                 {
+                    Console.WriteLine(scoreString);
+
                     double score = Convert.ToDouble(scoreString);
 
                     if (score > highestScore)
