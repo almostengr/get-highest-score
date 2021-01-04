@@ -5,11 +5,10 @@ namespace Almostengr.Hangman
 {
     class Program
     {
-        static int remainingAttempts = 7;
-
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Hangman!");
+            Console.WriteLine();
 
             string[] wordList = { "aardvark", "baboon", "camel", "dog", "elephant", "ferret", "giraffe" };
 
@@ -17,11 +16,12 @@ namespace Almostengr.Hangman
             // randomly choose a word from the word list and assign it to a variable called chosenWord
 
             Random random = new Random();
-            int wordListInt = random.Next(0, wordList.Length-1);
+            int wordListInt = random.Next(0, wordList.Length - 1);
 
             string chosenWord = wordList[wordListInt].ToLower();
             Console.WriteLine("The word has {0} characters", chosenWord.Length);
 
+            int remainingAttempts = 7;
             List<string> alreadyGuessedLetters = new List<string>();
             string displayWord = "";
 
@@ -49,49 +49,39 @@ namespace Almostengr.Hangman
                 // check if the letter the user guessed (guess) is one of the letters in the chosenWord
 
                 displayWord = "";
+                string containedMessage = "";
                 if (chosenWord.Contains(guess))
                 {
-                    Console.WriteLine("The letter {0} is contained in the word.", guess);
-
-                    displayWord = ProcessDisplayWord(chosenWord, alreadyGuessedLetters, displayWord);
+                    containedMessage = "{0} is contained in the word.";
                 }
                 else
                 {
-                    Console.WriteLine("The letter {0} is NOT contained in the word.", guess);
-                    displayWord = ProcessDisplayWord(chosenWord, alreadyGuessedLetters, displayWord);
+                    containedMessage = "{0} is NOT contained in the word.";
                     remainingAttempts--;
+                }
+
+                Console.WriteLine(containedMessage, guess);
+
+                foreach (var letter in chosenWord)
+                {
+                    if (alreadyGuessedLetters.Contains(letter.ToString()))
+                    {
+                        displayWord += letter;
+                    }
+                    else
+                    {
+                        displayWord += "*";
+                    }
                 }
 
                 Console.WriteLine(displayWord);
                 Console.WriteLine();
-            }
+            } // end while
 
-            ExitGame(chosenWord);
-        }
-
-        private static string ProcessDisplayWord(string chosenWord, List<string> alreadyGuessedLetters, string displayWord)
-        {
-            foreach (var letter in chosenWord)
-            {
-                if (alreadyGuessedLetters.Contains(letter.ToString()))
-                {
-                    displayWord += letter;
-                }
-                else
-                {
-                    displayWord += "*";
-                }
-            }
-
-            return displayWord;
-        }
-
-        private static void ExitGame(string theWord)
-        {
             if (remainingAttempts == 0)
             {
                 Console.WriteLine("You have ran out of attempts. You lose!");
-                Console.WriteLine("The word was: {0}", theWord);
+                Console.WriteLine("The word was: {0}", chosenWord);
             }
             else
             {
