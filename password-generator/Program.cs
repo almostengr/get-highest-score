@@ -8,14 +8,9 @@ namespace Almostengr.PasswordGenerator
         {
             Console.WriteLine("Welcome to the Password Generator!");
 
-            Console.WriteLine("How many letters would you like in your password?");
-            int numOfLetters = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("How many symbols would you like?");
-            int numOfSymbols = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("How many numbers would you like?");
-            int numOfNumbers = Convert.ToInt32(Console.ReadLine());
+            int numOfLetters = ProcessInput("How many letters would you like in your password?");
+            int numOfSymbols = ProcessInput("How many symbols would you like?");
+            int numOfNumbers = ProcessInput("How many numbers would you like?");
 
             string generatedPassword = "";
             Random random = new Random();
@@ -26,9 +21,7 @@ namespace Almostengr.PasswordGenerator
 
             int countLetters = 0, countSymbols = 0, countNumbers = 0;
 
-            while (countLetters < numOfLetters ||
-                countSymbols < numOfSymbols ||
-                countNumbers < numOfNumbers)
+            while (countLetters < numOfLetters || countSymbols < numOfSymbols || countNumbers < numOfNumbers)
             {
                 int charType = random.Next(1, 4);
 
@@ -54,6 +47,31 @@ namespace Almostengr.PasswordGenerator
             }
 
             Console.WriteLine("Your password is: {0}", generatedPassword);
+        }
+
+        private static int ProcessInput(string inputMessage)
+        {
+            int returnInt;
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine(inputMessage);
+                    returnInt = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Invalid input. {0}", ex.Message);
+                }
+                catch (OverflowException ex)
+                {
+                    Console.WriteLine("Number is too large. {0}", ex.Message);
+                }
+            }
+
+            return returnInt;
         }
 
         private static void AddCharToPassword(ref string generatedPassword, Random random, string inputString)
