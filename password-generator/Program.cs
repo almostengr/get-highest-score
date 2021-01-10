@@ -43,9 +43,8 @@ namespace Almostengr.PasswordGenerator
                             Console.WriteLine("Number is too large. {0}", ex.Message);
                             passwordGenCount = 1;
                         }
-                        catch (ArgumentException ex)
+                        catch (IndexOutOfRangeException)
                         {
-                            Console.WriteLine("Error: {0}", ex.Message);
                             passwordGenCount = 1;
                         }
                         break;
@@ -136,7 +135,7 @@ namespace Almostengr.PasswordGenerator
                 "" + newLine +
                 "-h | --help           Displays this screen" + newLine +
                 "-r | --randomlength   Generates password(s) of random length" + newLine +
-                "-c | --count          Generates specified number of passwords";
+                "-c | --count <n>      Generates specified <n> of passwords";
             Console.WriteLine(helpOutput);
         }
 
