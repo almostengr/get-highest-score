@@ -8,12 +8,90 @@ namespace Almostengr.PasswordGenerator
         {
             Console.WriteLine("Welcome to the Password Generator!");
 
-            int numOfLetters = ProcessInput("How many letters would you like in your password?");
-            int numOfSymbols = ProcessInput("How many symbols would you like?");
-            int numOfNumbers = ProcessInput("How many numbers would you like?");
+            Random random = new Random();
+
+            int numOfLetters = 0;
+            int numOfSymbols = 0;
+            int numOfNumbers = 0;
+            int passwordGenCount = 1;
+
+            bool doHelp = false;
+            bool randomLengths = false;
+
+            for (int i = 0; i < args.Length; i++)
+            {
+                switch (args[i])
+                {
+                    case "--randomlength":
+                    case "-r":
+                        randomLengths = true;
+                        break;
+
+                    case "--count":
+                    case "-c":
+                        try
+                        {
+                            passwordGenCount = Convert.ToInt32(args[i + 1]);
+                        }
+                        catch (FormatException ex)
+                        {
+                            Console.WriteLine("Invalid input. {0}", ex.Message);
+                            passwordGenCount = 1;
+                        }
+                        catch (OverflowException ex)
+                        {
+                            Console.WriteLine("Number is too large. {0}", ex.Message);
+                            passwordGenCount = 1;
+                        }
+                        catch (ArgumentException ex)
+                        {
+                            Console.WriteLine("Error: {0}", ex.Message);
+                            passwordGenCount = 1;
+                        }
+                        break;
+
+                    case "--help":
+                    case "-h":
+                        PrintHelp();
+                        doHelp = true;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            if (doHelp == false)   // if (!doHelp)
+            {
+                for (int i = 0; i < passwordGenCount; i++)
+                {
+                    if (randomLengths)
+                    {
+                        GetRandomLengths(random, out numOfLetters, out numOfSymbols, out numOfNumbers);
+                    }
+
+                    GeneratePassword(random, numOfLetters, numOfSymbols, numOfNumbers);
+                }
+            }
+        }
+
+        private static void GetRandomLengths(Random random, out int numOfLetters, out int numOfSymbols, out int numOfNumbers)
+        {
+            numOfLetters = random.Next(4, 8);
+            numOfSymbols = random.Next(2, 4);
+            numOfNumbers = random.Next(2, 4);
+        }
+
+        private static void GeneratePassword(Random random, int numOfLetters, int numOfSymbols, int numOfNumbers)
+        {
+            if (numOfLetters == 0)
+            {
+                numOfLetters = ProcessInput("How many letters would you like in your password?");
+                numOfSymbols = ProcessInput("How many symbols would you like?");
+                numOfNumbers = ProcessInput("How many numbers would you like?");
+            }
 
             string generatedPassword = "";
-            Random random = new Random();
 
             string allLetters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
             string allSymbols = "~!@#$%^&*()_-+=}{?><.,";
@@ -47,6 +125,19 @@ namespace Almostengr.PasswordGenerator
             }
 
             Console.WriteLine("Your password is: {0}", generatedPassword);
+        }
+
+        private static void PrintHelp()
+        {
+            string newLine = "\r\n";
+            string helpOutput = "Usage: password-generator [arguments]" + newLine +
+                "" + newLine +
+                "Generate a password" + newLine +
+                "" + newLine +
+                "-h | --help           Displays this screen" + newLine +
+                "-r | --randomlength   Generates password(s) of random length" + newLine +
+                "-c | --count          Generates specified number of passwords";
+            Console.WriteLine(helpOutput);
         }
 
         private static int ProcessInput(string inputMessage)
