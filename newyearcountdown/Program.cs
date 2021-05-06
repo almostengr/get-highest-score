@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Almostengr.NewYearCountdown
+namespace Almostengr.CodingChallenge.NewYearCountdown
 {
     class Program
     {

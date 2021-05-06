@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Almostengr.PasswordGenerator
+namespace Almostengr.CodingChallenge.PasswordGenerator
 {
     class Program
     {

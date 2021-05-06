@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Almostengr.Hangman
+namespace Almostengr.CodingChallenge.Hangman
 {
     class Program
     {

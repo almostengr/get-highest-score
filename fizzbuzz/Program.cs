@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Almostenger.FizzBuzz
+namespace Almostenger.CodingChallenge.FizzBuzz
 {
     class Program
     {
