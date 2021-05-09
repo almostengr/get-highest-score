@@ -24,7 +24,6 @@ namespace Almostengr.CodingChallenge.HighStudentScore
                 }
             }
 
-            // print(student_scores)
             foreach (int score in studentScoresInt)
             {
                 Console.WriteLine(score + " ");

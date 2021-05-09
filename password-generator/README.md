@@ -1,7 +1,13 @@
 # Password Generator
 
+## Overview
+
 Coding challenge was to create a password generator. This generator was taken from a Twitter
-post that I saw where an individual did this same applicatoin as part of a course.
+post that I saw where an individual did this same application as part of a course.
+
+## Challenge Requirements
+
+* Generate a password and output it for the user to see.
 
 ## Program Screenshot 
 
