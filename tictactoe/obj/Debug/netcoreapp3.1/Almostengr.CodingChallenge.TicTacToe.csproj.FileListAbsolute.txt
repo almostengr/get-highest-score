@@ -1,0 +1,13 @@
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.csprojAssemblyReference.cache
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.AssemblyInfoInputs.cache
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.AssemblyInfo.cs
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.csproj.CoreCompileInputs.cache
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.deps.json
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.runtimeconfig.json
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.runtimeconfig.dev.json
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.dll
+/home/almostengineer/coding-challenge/tictactoe/bin/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.pdb
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.dll
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.pdb
+/home/almostengineer/coding-challenge/tictactoe/obj/Debug/netcoreapp3.1/Almostengr.CodingChallenge.TicTacToe.genruntimeconfig.cache
